@@ -1,4 +1,7 @@
 var resource = {
+    options: {
+        scrollToTopAnimSpeed: 500
+    },
     init: function () {
         this.cacheDom();
         this.handleEvents();
@@ -14,6 +17,12 @@ var resource = {
         this.$evenBox = this.$descBox.filter(':even');
         this.$prettyPhoto = $('.portfolio-filters figure .prettyPhoto');
         this.$prettyVideo = $('.portfolio-filters figure .prettyVideo');
+        this.$backToTop = $('#back-to-top');
+        this.$closeFooter = $('footer i');
+        this.$footerContact = $('.footer-contact');
+        this.$footerContactContent = $('.footer-contact .footer-content');
+        this.$googleMapCaptionMap = $('.google-map > .contentMap');
+        this.$activeFooter = $('.footer-active');
     },
 
     validateForm: function() {
@@ -36,7 +45,9 @@ var resource = {
     },
 
     handleEvents: function () {
-        this.$submitBtn.on('click', this.validateForm());
+        this.$submitBtn.on('click', this.validateForm);
+        this.$backToTop.on('click', this.backToTop);
+        this.$closeFooter.on('click', this.closeFooter);
     },
 
     initFlexslider: function () {
@@ -126,7 +137,89 @@ var resource = {
                 }
             }
         });
+    },
+
+    /** preloader **/
+    preloader: function () {
+        $(window).on('load', function () {
+            Pace.on("done", function() {
+                $('#preload').fadeout(300);
+            });
+        });
+    },
+
+    backToTop: function () {
+        this.$backToTop.on('click', function () {
+            $('body, html').animate({
+                scrollTo: 0
+            }, this.options.scrollToTopAnimSpeed);
+        })
+    },
+
+    closeFooter: function () {
+        var self = this;
+        var finished = false;
+        if (finished) {
+            var checked = true;
+
+            if ($(this.$footerContact.css('position') === 'static')) {
+                $(this.$footerContact).css({position: 'relative'});
+                this.$footerContactContent.css({position: 'absolute'});
+                this.$googleMapCaptionMap.fadeOut();
+
+                checked = false;
+            }
+
+            this.$activeFooter.slideToggle('slow', function() {
+                if (checked) {
+                    //this.$footerContact.css({ position: 'static' });
+                    self.$footerContact.css({position: 'static'});
+                    self.$footerContactContent.css({ position: 'relative' });
+                    self.$googleMapCaptionMap.fadeIn();
+                }
+
+                finished = true;
+            })
+        }
     }
 };
 
 resource.init();
+
+$(window).scroll(function () {
+    if ($(this).scrollTop() >= 50) {
+        $('#return-to-top').fadeIn(200);
+    } else {
+        $('#return-to-top').fadeOut(200);
+    }
+});
+
+var scroller = {
+    init: function () {
+        this.scrollHandle();
+    },
+
+    scrollHandle: function () {
+        var scrollPos = parseInt($(window).scrollTop(), 10);
+        var truePos = parseInt($('href').offset().top, 10);
+        var pos = truePos - 65;
+
+        $('.inner-nav li a[href^="#"]').each(function () {
+            var href = $(this).attr('href');
+            if ($(href).length) {
+
+
+                if (scrollPos >= pos) {
+                    $('.inner-nav li a[href^="#"]').removeClass('nav-active');
+                    $('.inner-nav li a[href="' + href +'"]').addClass('nav-active');
+                }
+            } else {
+                if (scrollPos >= pos || scrollPos >= pos) {
+
+                }
+            }
+        })
+    }
+};
+
+scroller.init();
