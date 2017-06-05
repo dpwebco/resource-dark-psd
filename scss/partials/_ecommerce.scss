@@ -1,0 +1,117 @@
+$ecc-one-bg: #141518;
+.ecommerce-one {
+    background: $ecc-one-bg;
+    padding: 120px 0 116px 0;
+
+    .category {
+        background: url("../../img/sale-tag.png") no-repeat;
+        color: #fff;
+        text-transform: uppercase;
+        padding-left: 10px;
+        font-size: 12px;
+        padding-top: 2px;
+    }
+
+    .product-name {
+        color: #fff;
+        font-family: "Catamaran", sans-serif;
+        font-weight: 500;
+        font-size: 48px;
+        margin: 30px 0;
+    }
+
+    .product-description {
+        font-family: "Roboto", sans-serif;
+        font-size: 16px;
+        color: #989898;
+        line-height: 26px;
+    }
+
+    .features-list {
+        list-style: none;
+        padding: 0;
+        margin-top: 36px;
+
+        .feature {
+            color: #fff;
+            padding-left: 40px;
+            height: 30px;
+
+            .line {
+                width: 20px;
+                height: 1px;
+                background-color: #fff;
+                position: relative;
+                top: 10px;
+                left: -30px;
+            }
+        }
+    }
+
+    .price-info {
+        position: relative;
+        left: 30px;
+        .price {
+            font-size: 30px;
+            font-family: "Roboto", sans-serif;
+            color: #fff;
+        }
+
+        .delivery-info {
+            color: #989898
+        }
+    }
+}
+
+.new-badge {
+    background: url(../img/purple-badge.png) no-repeat;
+    width: 61px;
+    height: 61px;
+    position: absolute;
+    top: 370px;
+    right: 170px;
+    text-align: center;
+    .text {
+        color: #fff;
+        font-family: "Robot", sans-serif;
+        font-size: 14px;
+        text-transform: uppercase;
+        line-height: 61px;
+    }
+}
+
+.button-group {
+    width: 389px;
+    height: 100px;
+    background-color: #1a1b1d;
+    padding: 26px 30px;
+    margin-top: 43px;
+    .purchase-btn {
+        width: 165px;
+        height: 49px;
+        background-color: #4da1ff;
+        float: left;
+
+        border-radius: 5px;
+
+        font-family: "Roboto", sans-serif;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #fff;
+        font-size: 15px;
+        letter-spacing: 1px;
+        text-align: center;
+        line-height: 49px;
+    }
+}
+
+.Rectangle_ {
+    border-radius: 5px;
+    background-color: rgb(26, 27, 29);
+    position: absolute;
+    left: 246px;
+    top: 499px;
+    width: 389px;
+    height: 100px;
+    z-index: 300;
+}
