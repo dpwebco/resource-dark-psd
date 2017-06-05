@@ -1,0 +1,20 @@
+{
+  "name": "resource-dark-psd",
+  "homepage": "https://github.com/dpwebco/resource-dark-psd",
+  "authors": [
+    "Darrell E Parkhouse <info@dpwebco.com>"
+  ],
+  "description": "psd to html conversion",
+  "main": "index.html",
+  "keywords": [
+    "bootstrap",
+    "jquery",
+    "scss",
+    "photoshop"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "font-awesome": "fontawesome#^4.7.0"
+  }
+}
